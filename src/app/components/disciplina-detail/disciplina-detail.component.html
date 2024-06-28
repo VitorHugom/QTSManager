@@ -1,0 +1,18 @@
+<div class="disciplina-detail-container">
+  <h1>{{ isNew ? 'Cadastrar Nova Disciplina' : 'Alterar Disciplina' }}</h1>
+  <form (ngSubmit)="onSave()" class="disciplina-form">
+    <div class="form-group">
+      <label for="id">ID</label>
+      <span>{{ isNew ? 'Será gerado automaticamente' : disciplina.id }}</span>
+    </div>
+    <div class="form-group">
+      <label for="description">Descrição</label>
+      <input type="text" id="description" [(ngModel)]="disciplina.description" name="description">
+    </div>
+    <div class="form-group">
+      <label for="workload">Carga Horária</label>
+      <input type="number" id="workload" [(ngModel)]="disciplina.workload" name="workload">
+    </div>
+    <button type="submit" class="submit-button">{{ isNew ? 'Cadastrar' : 'Salvar' }}</button>
+  </form>
+</div>

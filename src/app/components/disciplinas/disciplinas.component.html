@@ -1,1 +1,17 @@
-<p>disciplinas works!</p>
+<div class="disciplinas-container">
+  <h1>Disciplinas</h1>
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar disciplinas..." class="search-input">
+    <select [(ngModel)]="searchBy" class="search-select">
+      <option value="id">ID</option>
+      <option value="description">Descrição</option>
+    </select>
+    <button (click)="onSearch()" class="search-button">Buscar</button>
+  </div>
+  <button (click)="onNewDisciplina()" class="new-disciplina-button">Cadastrar Nova Disciplina</button>
+  <ul class="disciplinas-list">
+    <li *ngFor="let disciplina of filteredDisciplinas" (click)="onEditDisciplina(disciplina.id)" class="disciplina-item">
+      {{ disciplina.id }} - {{ disciplina.description }}
+    </li>
+  </ul>
+</div>
