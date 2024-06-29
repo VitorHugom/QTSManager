@@ -13,6 +13,9 @@
       <label for="workload">Carga Horária</label>
       <input type="number" id="workload" [(ngModel)]="disciplina.workload" name="workload">
     </div>
-    <button type="submit" class="submit-button">{{ isNew ? 'Cadastrar' : 'Salvar' }}</button>
+    <div class="button-group">
+      <button (click)="navigateToDisciplinas()" type="button" class="back-button">Voltar para Disciplinas</button>
+      <button type="submit" class="submit-button">{{ isNew ? 'Cadastrar' : 'Salvar' }}</button>
+    </div>
   </form>
 </div>

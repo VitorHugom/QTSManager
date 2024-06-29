@@ -8,10 +8,13 @@
     </select>
     <button (click)="onSearch()" class="search-button">Buscar</button>
   </div>
-  <button (click)="onNewDisciplina()" class="new-disciplina-button">Cadastrar Nova Disciplina</button>
   <ul class="disciplinas-list">
     <li *ngFor="let disciplina of filteredDisciplinas" (click)="onEditDisciplina(disciplina.id)" class="disciplina-item">
       {{ disciplina.id }} - {{ disciplina.description }}
     </li>
   </ul>
+  <div class="button-container">
+    <button (click)="navigateToHome()" class="nav-button">Voltar para Home</button>
+    <button (click)="onNewDisciplina()" class="new-disciplina-button">Cadastrar Nova Disciplina</button>
+  </div>
 </div>

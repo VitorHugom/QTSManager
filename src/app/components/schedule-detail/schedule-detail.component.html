@@ -1,0 +1,25 @@
+<div class="schedule-detail-container">
+  <h1>{{ isNew ? 'Cadastrar Novo Horário' : 'Alterar Horário' }}</h1>
+  <form (ngSubmit)="onSave()" class="schedule-form">
+    <div class="form-group">
+      <label for="id">ID</label>
+      <span>{{ isNew ? 'Será gerado automaticamente' : schedule.id }}</span>
+    </div>
+    <div class="form-group">
+      <label for="descricao">Descrição</label>
+      <input type="text" id="descricao" [(ngModel)]="schedule.descricao" name="descricao">
+    </div>
+    <div class="form-group">
+      <label for="horario_inicio">Horário de Início</label>
+      <input type="time" id="horario_inicio" [(ngModel)]="schedule.horario_inicio" name="horario_inicio">
+    </div>
+    <div class="form-group">
+      <label for="horario_fim">Horário de Fim</label>
+      <input type="time" id="horario_fim" [(ngModel)]="schedule.horario_fim" name="horario_fim">
+    </div>
+    <div class="button-container">
+      <button (click)="navigateToSchedules()" type="button" class="back-button">Voltar para Horários</button>
+      <button type="submit" class="submit-button">{{ isNew ? 'Cadastrar' : 'Salvar' }}</button>
+    </div>
+  </form>
+</div>

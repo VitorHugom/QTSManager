@@ -42,4 +42,8 @@ export class DisciplinaDetailComponent implements OnInit {
       });
     }
   }
+
+  navigateToDisciplinas(): void {
+    this.router.navigate(['/disciplinas']);
+  }
 }

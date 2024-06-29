@@ -1,0 +1,20 @@
+<div class="schedules-container">
+  <h1>Horários</h1>
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar horários..." class="search-input">
+    <select [(ngModel)]="searchBy" class="search-select">
+      <option value="id">ID</option>
+      <option value="descricao">Descrição</option>
+    </select>
+    <button (click)="onSearch()" class="search-button">Buscar</button>
+  </div>
+  <ul class="schedules-list">
+    <li *ngFor="let schedule of filteredSchedules" (click)="onEditSchedule(schedule.id)" class="schedule-item">
+      {{ schedule.id }} - {{ schedule.descricao }}
+    </li>
+  </ul>
+  <div class="button-container">
+    <button (click)="navigateToHome()" class="nav-button">Voltar para Home</button>
+    <button (click)="onNewSchedule()" class="new-schedule-button">Cadastrar Novo Horário</button>
+  </div>
+</div>

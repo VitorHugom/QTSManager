@@ -52,4 +52,8 @@ export class DisciplinasComponent implements OnInit {
   onEditDisciplina(id: number): void {
     this.router.navigate(['/disciplinas', id]);
   }
+
+  navigateToHome(): void {
+    this.router.navigate(['/']);
+  }
 }

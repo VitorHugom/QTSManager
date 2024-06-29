@@ -5,6 +5,8 @@ import { ProfessoresComponent } from './components/professores/professores.compo
 import { CursosComponent } from './components/cursos/cursos.component';
 import { GerarQtsComponent } from './components/gerar-qts/gerar-qts.component';
 import { DisciplinaDetailComponent } from './components/disciplina-detail/disciplina-detail.component';
+import { SchedulesComponent } from './components/schedules/schedules.component';
+import { ScheduleDetailComponent } from './components/schedule-detail/schedule-detail.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,5 +15,8 @@ export const routes: Routes = [
   { path: 'disciplinas/:id', component: DisciplinaDetailComponent },
   { path: 'professores', component: ProfessoresComponent },
   { path: 'cursos', component: CursosComponent },
-  { path: 'gerar-qts', component: GerarQtsComponent }
+  { path: 'gerar-qts', component: GerarQtsComponent },
+  { path: 'schedules', component: SchedulesComponent },
+  { path: 'schedules/new', component: ScheduleDetailComponent },
+  { path: 'schedules/:id', component: ScheduleDetailComponent }
 ];
