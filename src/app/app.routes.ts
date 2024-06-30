@@ -7,6 +7,8 @@ import { GerarQtsComponent } from './components/gerar-qts/gerar-qts.component';
 import { DisciplinaDetailComponent } from './components/disciplina-detail/disciplina-detail.component';
 import { SchedulesComponent } from './components/schedules/schedules.component';
 import { ScheduleDetailComponent } from './components/schedule-detail/schedule-detail.component';
+import { DaysOfWeekComponent } from './days-of-week/days-of-week.component';
+import { DaysOfWeekDetailComponent } from './days-of-week-detail/days-of-week-detail.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,5 +20,8 @@ export const routes: Routes = [
   { path: 'gerar-qts', component: GerarQtsComponent },
   { path: 'schedules', component: SchedulesComponent },
   { path: 'schedules/new', component: ScheduleDetailComponent },
-  { path: 'schedules/:id', component: ScheduleDetailComponent }
+  { path: 'schedules/:id', component: ScheduleDetailComponent },
+  { path: 'days-of-week', component: DaysOfWeekComponent },
+  { path: 'days-of-week/new', component: DaysOfWeekDetailComponent },
+  { path: 'days-of-week/:id', component: DaysOfWeekDetailComponent }
 ];

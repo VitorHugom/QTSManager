@@ -1,0 +1,39 @@
+<div class="day-detail-container">
+    <h1>{{ isNew ? 'Cadastrar Novo Dia da Semana' : 'Alterar Dia da Semana' }}</h1>
+    <form (ngSubmit)="onSave()" class="day-form">
+        <div class="form-group">
+            <label for="dia_da_semana">Nome</label>
+            <input type="text" id="dia_da_semana" [(ngModel)]="day.dia_da_semana" name="dia_da_semana" required>
+        </div>
+        <div class="form-group">
+            <label for="status">Status</label>
+            <select id="status" [(ngModel)]="day.status" name="status" required>
+                <option [ngValue]="true">Ativo</option>
+                <option [ngValue]="false">Inativo</option>
+            </select>
+        </div>
+        <div class="schedules-container">
+            <div class="available-schedules">
+                <h2>Horários Disponíveis</h2>
+                <ul>
+                    <li *ngFor="let schedule of availableSchedules" (click)="linkSchedule(schedule)">
+                        {{ schedule.descricao }} - {{ schedule.horario_inicio }} às {{ schedule.horario_fim }}
+                    </li>
+                </ul>
+            </div>
+            <div class="linked-schedules">
+                <h2>Horários Vinculados</h2>
+                <ul>
+                    <li *ngFor="let schedule of linkedSchedules" (click)="unlinkSchedule(schedule)">
+                        {{ schedule.descricao }} - {{ schedule.horario_inicio }} às {{ schedule.horario_fim }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="button-group">
+            <button (click)="navigateToDaysOfWeek()" type="button" class="back-button">Voltar para Dias da Semana</button>
+            <button *ngIf="!isNew" (click)="onDelete()" type="button" class="delete-button">Deletar</button>
+            <button type="submit" class="submit-button">{{ isNew ? 'Cadastrar' : 'Salvar' }}</button>
+        </div>
+    </form>
+</div>

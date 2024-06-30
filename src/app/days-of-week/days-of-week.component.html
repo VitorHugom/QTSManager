@@ -1,0 +1,21 @@
+<div class="days-of-week-container">
+    <h1>Dias da Semana</h1>
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar dias da semana..." class="search-input">
+      <select [(ngModel)]="searchBy" class="search-select">
+        <option value="id">ID</option>
+        <option value="dia_da_semana">Nome</option>
+        <option value="status">Status</option>
+      </select>
+      <button (click)="onSearch()" class="search-button">Buscar</button>
+    </div>
+    <ul class="days-of-week-list">
+      <li *ngFor="let day of filteredDaysOfWeek" (click)="onEditDay(day.id)" class="day-item">
+        {{ day.id }} - {{ day.dia_da_semana }} - {{ day.status ? 'Ativo' : 'Inativo' }}
+      </li>
+    </ul>
+    <div class="button-container">
+      <button (click)="navigateToHome()" class="nav-button">Voltar para Home</button>
+      <button (click)="onNewDay()" class="new-day-button">Cadastrar Novo Dia</button>
+    </div>
+  </div>
