@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DaysOfWeekService, DayOfWeek } from '../services/days-of-week.service';
+import { DaysOfWeekService, DayOfWeek } from '../../services/days-of-week.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -16,7 +16,7 @@ export class DaysOfWeekComponent implements OnInit {
   filteredDaysOfWeek: DayOfWeek[] = [];
   searchQuery: string = '';
   searchBy: string = 'id';
-
+  
   constructor(private daysOfWeekService: DaysOfWeekService, private router: Router) {}
 
   ngOnInit(): void {

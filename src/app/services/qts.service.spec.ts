@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DaysOfWeekService } from './days-of-week.service';
+import { QtsService } from './qts.service';
 
-describe('DaysOfWeekService', () => {
-  let service: DaysOfWeekService;
+describe('QtsService', () => {
+  let service: QtsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DaysOfWeekService);
+    service = TestBed.inject(QtsService);
   });
 
   it('should be created', () => {

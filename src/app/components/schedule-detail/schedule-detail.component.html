@@ -19,6 +19,7 @@
     </div>
     <div class="button-container">
       <button (click)="navigateToSchedules()" type="button" class="back-button">Voltar para Horários</button>
+      <button *ngIf="!isNew" (click)="onDelete()" type="button" class="delete-button">Deletar</button>
       <button type="submit" class="submit-button">{{ isNew ? 'Cadastrar' : 'Salvar' }}</button>
     </div>
   </form>

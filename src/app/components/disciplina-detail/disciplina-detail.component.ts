@@ -20,7 +20,7 @@ export class DisciplinaDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {}
-
+  
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
@@ -45,5 +45,10 @@ export class DisciplinaDetailComponent implements OnInit {
 
   navigateToDisciplinas(): void {
     this.router.navigate(['/disciplinas']);
+  }
+  onDelete(): void {
+      this.disciplinaService.deleteDisciplina(this.disciplina.id).subscribe(() => {
+        this.router.navigate(['/disciplinas']);
+      });
   }
 }

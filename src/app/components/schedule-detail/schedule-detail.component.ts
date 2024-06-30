@@ -45,4 +45,9 @@ export class ScheduleDetailComponent implements OnInit {
   navigateToSchedules(): void {
     this.router.navigate(['/schedules']);
   }
+  onDelete(): void {
+    this.scheduleService.deleteSchedule(this.schedule.id).subscribe(() => {
+      this.router.navigate(['/schedules']);
+    });
+}
 }

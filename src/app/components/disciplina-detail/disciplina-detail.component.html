@@ -15,6 +15,7 @@
     </div>
     <div class="button-group">
       <button (click)="navigateToDisciplinas()" type="button" class="back-button">Voltar para Disciplinas</button>
+      <button *ngIf="!isNew" (click)="onDelete()" type="button" class="delete-button">Deletar</button>
       <button type="submit" class="submit-button">{{ isNew ? 'Cadastrar' : 'Salvar' }}</button>
     </div>
   </form>

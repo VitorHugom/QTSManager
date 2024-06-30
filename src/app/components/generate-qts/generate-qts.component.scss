@@ -1,4 +1,4 @@
-.cursos-container {
+.generate-qts-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -11,30 +11,48 @@
       color: #333;
     }
   
-    .search-container {
+    .form-group {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
       margin-bottom: 20px;
   
-      .search-input, .search-select, .search-button {
+      label {
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+  
+      .course-select {
         padding: 10px;
-        margin-right: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
-      }
+        font-size: 16px;
+        width: 100%;
+        max-width: 300px;
+        transition: background-color 0.3s ease, color 0.3s ease;
   
-      .search-input {
-        flex: 1;
-      }
-  
-      .search-button {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        cursor: pointer;
         &:hover {
-          background-color: #0056b3;
+          background-color: #c0bfbf;
+        }
+  
+        &::placeholder {
+
+            color: #8d8c8c;
+        }
+  
+        option {
+          background-color: #c9c9c9;
+          color: #000;
+        }
+  
+        option:hover {
+          background-color: #e0e0e0; /* Cinza claro */
+          color: #000;
+        }
+  
+        option:checked {
+          background-color: #d3d3d3; /* Cinza mais escuro */
+          color: #000;
         }
       }
     }
@@ -45,7 +63,7 @@
       align-items: center;
       margin-top: 20px;
   
-      .nav-button, .new-curso-button {
+      .nav-button, .generate-qts-button {
         padding: 10px 20px;
         border: none;
         border-radius: 4px;
@@ -61,27 +79,10 @@
         }
       }
   
-      .new-curso-button {
+      .generate-qts-button {
         background-color: #28a745;
         &:hover {
           background-color: #218838;
-        }
-      }
-    }
-  
-    .cursos-list {
-      list-style-type: none;
-      padding: 0;
-  
-      .curso-item {
-        padding: 10px;
-        margin-bottom: 10px;
-        background-color: white;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        cursor: pointer;
-        &:hover {
-          background-color: #f1f1f1;
         }
       }
     }

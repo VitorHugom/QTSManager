@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GerarQtsComponent } from './gerar-qts.component';
+import { GenerateQtsComponent } from './generate-qts.component';
 
-describe('GerarQtsComponent', () => {
-  let component: GerarQtsComponent;
-  let fixture: ComponentFixture<GerarQtsComponent>;
+describe('GenerateQtsComponent', () => {
+  let component: GenerateQtsComponent;
+  let fixture: ComponentFixture<GenerateQtsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GerarQtsComponent]
+      imports: [GenerateQtsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GerarQtsComponent);
+    fixture = TestBed.createComponent(GenerateQtsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

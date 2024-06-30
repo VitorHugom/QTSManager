@@ -1,2 +1,21 @@
-<h2>Gerenciamento de Professores</h2>
-<!-- Aqui você adicionará o formulário e a tabela para gerenciamento de professores -->
+<div class="professores-container">
+    <h1>Professores</h1>
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar professores..." class="search-input">
+      <select [(ngModel)]="searchBy" class="search-select">
+        <option value="id">ID</option>
+        <option value="nome_professor">Nome</option>
+      </select>
+      <button (click)="onSearch()" class="search-button">Buscar</button>
+    </div>
+    <ul class="professores-list">
+      <li *ngFor="let professor of filteredProfessores" (click)="onEditProfessor(professor.id)" class="professor-item">
+        {{ professor.id }} - {{ professor.nome_professor }}
+      </li>
+    </ul>
+    <div class="button-container">
+      <button (click)="navigateToHome()" class="nav-button">Voltar para Home</button>
+      <button (click)="onNewProfessor()" class="new-professor-button">Cadastrar Novo Professor</button>
+    </div>
+  </div>
+  

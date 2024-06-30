@@ -1,0 +1,14 @@
+<div class="generate-qts-container">
+    <h1>Gerar QTS</h1>
+    <div class="form-group">
+      <label for="course">Selecione o Curso:</label>
+      <select id="course" [(ngModel)]="selectedCourse" class="course-select">
+        <option *ngFor="let course of courses" [ngValue]="course">{{ course.nome_curso }}</option>
+      </select>
+    </div>
+    <div class="button-container">
+      <button (click)="goBack()" class="nav-button">Voltar para Home</button>
+      <button (click)="generateQts()" class="generate-qts-button">Gerar QTS</button>
+    </div>
+  </div>
+  
