@@ -71,4 +71,7 @@ export class QtsService {
   getQtsById(id: number): Observable<QtsResponseDTO> {
     return this.http.get<QtsResponseDTO>(`${this.apiUrl}/${id}`);
   }
+  deleteQts(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

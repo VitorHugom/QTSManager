@@ -53,7 +53,6 @@ export class GenerateQtsComponent implements OnInit {
       this.qtsService.generateQts(this.selectedCourse.nome_curso).subscribe(
         (response) => {
           console.log('QTS gerado com sucesso:', response);
-          alert('QTS gerado com sucesso!');
           this.loadQts(); // Reload QTS list after generating new QTS
         },
         (error) => {

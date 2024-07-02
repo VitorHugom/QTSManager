@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QtsService, QtsResponseDTO, Schedule, QtsSchedule } from '../../services/qts.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +19,7 @@ export class QtsDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private qtsService: QtsService
   ) {}
 
@@ -78,5 +79,17 @@ export class QtsDetailComponent implements OnInit {
 
   printQts(): void {
     window.print();
+  }
+
+  goBack(): void {
+    this.router.navigate(['/gerar-qts']);
+  }
+
+  deleteQts(): void {
+    if (this.id) {
+      this.qtsService.deleteQts(this.id).subscribe(() => {
+        this.router.navigate(['/gerar-qts']);
+      });
+    }
   }
 }
