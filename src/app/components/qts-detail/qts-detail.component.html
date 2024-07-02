@@ -1,0 +1,26 @@
+<div *ngIf="qts" class="qts-detail-container">
+    <h1>Detalhes do QTS</h1>
+    <h2>{{ qts.course.nomeCurso }}</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Horário</th>
+          <th *ngFor="let day of daysOfWeek">{{ day }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let schedule of uniqueSchedules">
+          <td>{{ schedule.descricao }}</td>
+          <td *ngFor="let day of daysOfWeek">
+            <div *ngFor="let qtsSchedule of getQtsScheduleForDayAndTime(day, schedule)">
+              {{ qtsSchedule.discipline.description }} - {{ qtsSchedule.professor.nome_professor }}
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="print-button-container">
+      <button (click)="printQts()" class="print-button">Imprimir QTS</button>
+    </div>
+  </div>
+  

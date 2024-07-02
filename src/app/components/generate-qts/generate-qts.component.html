@@ -1,14 +1,29 @@
 <div class="generate-qts-container">
-    <h1>Gerar QTS</h1>
-    <div class="form-group">
-      <label for="course">Selecione o Curso:</label>
-      <select id="course" [(ngModel)]="selectedCourse" class="course-select">
-        <option *ngFor="let course of courses" [ngValue]="course">{{ course.nome_curso }}</option>
-      </select>
-    </div>
-    <div class="button-container">
-      <button (click)="goBack()" class="nav-button">Voltar para Home</button>
-      <button (click)="generateQts()" class="generate-qts-button">Gerar QTS</button>
-    </div>
+  <h1>Gerar QTS</h1>
+  <div class="form-group">
+    <label for="course">Selecione o Curso:</label>
+    <select id="course" [(ngModel)]="selectedCourse" class="course-select">
+      <option *ngFor="let course of courses" [ngValue]="course">{{ course.nome_curso }}</option>
+    </select>
   </div>
-  
+  <div class="button-container">
+    <button (click)="goBack()" class="nav-button">Voltar para Home</button>
+    <button (click)="generateQts()" class="generate-qts-button">Gerar QTS</button>
+  </div>
+  <div class="search-qts-container">
+    <h2>Buscar QTS</h2>
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar QTS..." class="search-input">
+      <select [(ngModel)]="searchBy" class="search-select">
+        <option value="id">ID</option>
+        <option value="courseName">Nome do Curso</option>
+      </select>
+      <button (click)="onSearch()" class="search-button">Buscar</button>
+    </div>
+    <ul class="qts-list">
+      <li *ngFor="let qts of filteredQts" (click)="onViewQts(qts.id)" class="qts-item">
+        {{ qts.id }} - {{ qts.course.nomeCurso }}
+      </li>
+    </ul>
+  </div>
+</div>

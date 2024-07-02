@@ -11,6 +11,7 @@ import { SchedulesComponent } from './components/schedules/schedules.component';
 import { ScheduleDetailComponent } from './components/schedule-detail/schedule-detail.component';
 import { DaysOfWeekComponent } from './components/days-of-week/days-of-week.component';
 import { DaysOfWeekDetailComponent } from './components/days-of-week-detail/days-of-week-detail.component';
+import { QtsDetailComponent } from './components/qts-detail/qts-detail.component';
 
 
 export const routes: Routes = [
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'cursos/new', component: CursoDetailComponent },
   { path: 'cursos/:id', component: CursoDetailComponent },
   { path: 'gerar-qts', component: GenerateQtsComponent },
+  { path: 'qts/:id', component: QtsDetailComponent },
   { path: 'schedules', component: SchedulesComponent },
   { path: 'schedules/new', component: ScheduleDetailComponent },
   { path: 'schedules/:id', component: ScheduleDetailComponent },
