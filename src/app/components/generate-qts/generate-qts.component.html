@@ -1,7 +1,7 @@
 <div class="generate-qts-container">
   <h1>Gerar QTS</h1>
   <div class="form-group">
-    <label for="course">Selecione o Curso:</label>
+    <label for="course">Selecione a Turma:</label>
     <select id="course" [(ngModel)]="selectedCourse" class="course-select">
       <option *ngFor="let course of courses" [ngValue]="course">{{ course.nome_curso }}</option>
     </select>
@@ -16,7 +16,7 @@
       <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar QTS..." class="search-input">
       <select [(ngModel)]="searchBy" class="search-select">
         <option value="id">ID</option>
-        <option value="courseName">Nome do Curso</option>
+        <option value="courseName">Nome da Turma</option>
       </select>
       <button (click)="onSearch()" class="search-button">Buscar</button>
     </div>

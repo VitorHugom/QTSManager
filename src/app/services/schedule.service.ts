@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Schedule {
   id: number;
@@ -13,7 +14,7 @@ export interface Schedule {
   providedIn: 'root'
 })
 export class ScheduleService {
-  private apiUrl = 'http://localhost:8080/schedules'; // Atualize com o URL da sua API
+  private apiUrl = `${environment.apiUrl}/schedules`; // Atualize com o URL da sua API
 
   constructor(private http: HttpClient) {}
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Schedule {
   id: number;
@@ -20,8 +21,8 @@ export interface DayOfWeek {
   providedIn: 'root'
 })
 export class DaysOfWeekService {
-  private apiUrl = 'http://localhost:8080/days_of_week';
-  private schedulesUrl = 'http://localhost:8080/schedules';
+  private apiUrl = `${environment.apiUrl}/days_of_week`;
+  private schedulesUrl = `${environment.apiUrl}/schedules`;
 
   constructor(private http: HttpClient) {}
 

@@ -6,23 +6,23 @@
     width: 100%;
     background: linear-gradient(to right, #1e3c72, #2a5298);
     color: white;
-    padding: 50px 0;
+    padding: 40px 0;
     margin-bottom: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: clamp(1.5em, 4vw, 2.5em); // Responsive font size
     }
   }
 
   .description {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     
     p {
-      font-size: 1.5em;
+      font-size: clamp(1em, 2.5vw, 1.5em); // Responsive font size
       color: #333;
-      margin: 0;
+      margin: 0 10px; // Added margin for better padding
     }
   }
 
@@ -41,13 +41,48 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.3s ease;
-      font-size: 1.1em;
+      font-size: clamp(0.8em, 2.5vw, 1.1em); // Responsive font size
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      min-width: 120px;
 
       &:hover {
         background-color: #2a5298;
         transform: translateY(-2px);
       }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .banner {
+    padding: 30px 0;
+  }
+
+  .button-container {
+    .nav-button {
+      padding: 10px 20px;
+      font-size: clamp(0.7em, 3vw, 1em); // Smaller size for mobile
+      margin-bottom: 10px; // Space between buttons on stack
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .banner {
+    padding: 20px 0;
+  }
+
+  .description {
+    p {
+      font-size: clamp(0.9em, 4vw, 1.3em); // Smaller size for mobile
+    }
+  }
+
+  .button-container {
+    .nav-button {
+      padding: 8px 16px;
+      font-size: clamp(0.6em, 4vw, 0.9em); // Smaller size for mobile
+      margin-bottom: 8px; // Space between buttons on stack
     }
   }
 }

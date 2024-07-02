@@ -1,5 +1,5 @@
 .schedule-detail-container {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
@@ -9,6 +9,7 @@
   h1 {
     text-align: center;
     color: #333;
+    font-size: clamp(1.5em, 2.5vw, 2em);
   }
 
   .schedule-form {
@@ -22,6 +23,7 @@
         display: block;
         margin-bottom: 5px;
         color: #555;
+        font-size: clamp(0.8em, 2vw, 1em);
       }
 
       input, span {
@@ -29,9 +31,9 @@
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
-        display: block;
         background-color: #f9f9f9;
         color: #555;
+        font-size: clamp(0.8em, 2vw, 1em);
       }
 
       span {
@@ -47,6 +49,8 @@
     .button-container {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 10px;
 
       .submit-button, .back-button, .delete-button {
@@ -56,13 +60,13 @@
         cursor: pointer;
         text-decoration: none;
         color: white;
+        font-size: clamp(0.8em, 2vw, 1em);
       }
 
       .delete-button {
         background-color: #dc3545;
-
         &:hover {
-            background-color: #c82333;
+          background-color: #c82333;
         }
       }
 
@@ -75,10 +79,16 @@
 
       .back-button {
         background-color: #007bff;
-        &:hover { 
+        &:hover {
           background-color: #0056b3;
         }
       }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .button-container {
+      flex-direction: column;
     }
   }
 }

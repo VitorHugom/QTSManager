@@ -6,25 +6,31 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   
-    h1 {
+    h1, h2 {
       text-align: center;
       color: #333;
     }
   
     h2 {
-      text-align: center;
       color: #666;
       margin-bottom: 20px;
+    }
+  
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
     }
   
     table {
       width: 100%;
       border-collapse: collapse;
+      font-size: clamp(8px, 1.5vw, 16px); // Ajuste dinâmico com limite mínimo e máximo
   
       th, td {
         border: 1px solid #ccc;
         padding: 8px;
         text-align: center;
+        word-break: break-word; // Quebra de palavras longas para evitar overflow
       }
   
       th {
@@ -42,33 +48,70 @@
   
       .print-button, .back-button, .delete-button {
         padding: 10px 20px;
-        font-size: 16px;
+        font-size: clamp(10px, 1.5vw, 16px); // Ajuste dinâmico com limite mínimo e máximo
         color: #fff;
-        background-color: #007bff;
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        margin: 0 10px;
+        margin: 0 10px 10px; // Espaço vertical entre os botões
+        width: 100%;
+        max-width: 200px;
   
         &:hover {
-          background-color: #0056b3;
+          opacity: 0.8;
         }
       }
   
-      .back-button {
+      .back-button, .print-button {
         background-color: #007bff;
-  
-        &:hover {
-          background-color: #0056b3;
-        }
       }
-
+  
       .delete-button {
         background-color: #ff0000;
+      }
+    }
+  }
   
-        &:hover {
-          background-color: #b90101;
-        }
+  @media (max-width: 600px) {
+    .qts-detail-container {
+      padding: 10px;
+    }
+  
+    table {
+      font-size: clamp(6px, 2.5vw, 14px); // Ajuste para dispositivos menores com valor mínimo menor
+    }
+  
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      .print-button, .back-button, .delete-button {
+        font-size: clamp(8px, 3vw, 14px); // Ajuste para dispositivos menores
+        padding: 8px 16px;
+        margin: 0 0 10px; // Espaço vertical entre os botões
+      }
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .qts-detail-container {
+      padding: 5px;
+    }
+  
+    h1, h2 {
+      font-size: clamp(10px, 4vw, 18px); // Ajuste para dispositivos menores
+    }
+  
+    table {
+      font-size: clamp(4px, 3.5vw, 12px); // Ajuste para dispositivos menores com valor mínimo menor
+    }
+  
+    .button-container {
+      .print-button, .back-button, .delete-button {
+        font-size: clamp(6px, 4vw, 12px); // Ajuste para dispositivos menores
+        padding: 6px 12px;
+        margin: 0 0 10px; // Espaço vertical entre os botões
       }
     }
   }

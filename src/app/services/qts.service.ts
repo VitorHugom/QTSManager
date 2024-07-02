@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Course {
   id: number;
@@ -56,7 +57,7 @@ export interface QtsResponseDTO {
   providedIn: 'root'
 })
 export class QtsService {
-  private apiUrl = 'http://localhost:8080/qts';
+  private apiUrl = `${environment.apiUrl}/qts`;
 
   constructor(private http: HttpClient) {}
 

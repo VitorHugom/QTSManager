@@ -1,60 +1,72 @@
 .curso-detail-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  
-    h1 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: clamp(1.5em, 2.5vw, 2em);
+  }
+
+  .curso-form {
+    display: flex;
+    flex-direction: column;
+
+    .form-group {
+      margin-bottom: 15px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+        font-size: clamp(0.8em, 2vw, 1em);
+      }
+
+      input, select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        display: block;
+        background-color: #f9f9f9;
+        color: #555;
+        font-size: clamp(0.8em, 2vw, 1em);
+      }
     }
-  
-    .curso-form {
+
+    .disciplinas-container {
       display: flex;
-      flex-direction: column;
-  
-      .form-group {
-        margin-bottom: 15px;
-  
-        label {
-          display: block;
-          margin-bottom: 5px;
-          color: #555;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+
+      .available-disciplinas, .linked-disciplinas {
+        flex: 1;
+        margin-right: 10px;
+
+        h2 {
+          text-align: center;
+          color: #333;
+          margin-bottom: 10px;
+          font-size: clamp(1.2em, 2.2vw, 1.6em);
         }
-  
-        input, select {
-          width: 100%;
-          padding: 10px;
+
+        .disciplinas-box {
           border: 1px solid #ccc;
           border-radius: 4px;
-          display: block;
-          background-color: #f9f9f9;
-          color: #555;
-        }
-      }
-  
-      .disciplinas-container {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 15px;
-  
-        .available-disciplinas, .linked-disciplinas {
-          flex: 1;
-          margin-right: 10px;
-  
-          h2 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 10px;
-          }
-  
+          padding: 10px;
+          background-color: #e2e2e2;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
           ul {
             list-style-type: none;
             padding: 0;
-  
+
             li {
               padding: 10px;
               margin-bottom: 10px;
@@ -63,53 +75,104 @@
               border-radius: 4px;
               cursor: pointer;
               transition: background-color 0.3s;
-  
+              font-size: clamp(0.8em, 2vw, 1em);
+
               &:hover {
                 background-color: #e0e0e0;
               }
             }
           }
         }
-  
-        .linked-disciplinas {
-          margin-right: 0;
+      }
+
+      .linked-disciplinas {
+        margin-right: 0;
+      }
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+
+      .submit-button, .back-button, .delete-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        color: white;
+        flex: 1 1 calc(33.333% - 10px); /* Responsivo para 3 botões */
+
+        &:hover {
+          opacity: 0.9;
         }
       }
-  
-      .button-group {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-  
-        .submit-button, .back-button, .delete-button {
-          padding: 10px 20px;
-          background-color: #007bff;
-          color: white;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          flex: 1;
-          margin-right: 10px;
-          text-align: center;
-          transition: background-color 0.3s;
-  
-          &:hover {
-            background-color: #0056b3;
-          }
-  
-          &:last-child {
-            margin-right: 0;
-          }
-        }
 
-        .delete-button {
-          background-color: #dc3545;
-  
-          &:hover {
-              background-color: #c82333;
+      .submit-button {
+        background-color: #007bff;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+
+      .back-button {
+        background-color: #6c757d;
+
+        &:hover {
+          background-color: #5a6268;
+        }
+      }
+
+      .delete-button {
+        background-color: #dc3545;
+
+        &:hover {
+          background-color: #c82333;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 10px;
+
+    h1 {
+      font-size: clamp(1.2em, 5vw, 1.5em);
+    }
+
+    .curso-form {
+      .form-group {
+        input, select {
+          font-size: clamp(0.8em, 4vw, 1em);
+        }
+      }
+
+      .disciplinas-container {
+        flex-direction: column;
+
+        .available-disciplinas, .linked-disciplinas {
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+      }
+
+      .button-group {
+        flex-direction: column;
+
+        .submit-button, .back-button, .delete-button {
+          flex: 1 1 auto; /* Responsivo para botões em coluna */
+          margin-right: 0;
+          margin-bottom: 10px;
+
+          &:last-child {
+            margin-bottom: 0;
           }
         }
       }
     }
   }
-  
+}

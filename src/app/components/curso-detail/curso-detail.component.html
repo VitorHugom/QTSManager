@@ -1,25 +1,28 @@
 <div class="curso-detail-container">
-    <h1>{{ isNew ? 'Cadastrar Novo Curso' : 'Alterar Curso' }}</h1>
-    <form (ngSubmit)="onSave()" class="curso-form">
-      <div class="form-group">
-        <label for="nomeCurso">Nome do Curso</label>
-        <input type="text" id="nomeCurso" [(ngModel)]="curso.nome_curso" name="nomeCurso" required>
-      </div>
-      <div class="form-group">
-        <label for="cargaHoraria">Carga Horária</label>
-        <input type="number" id="cargaHoraria" [(ngModel)]="curso.carga_horaria" name="cargaHoraria" required>
-      </div>
-      <div class="disciplinas-container">
-        <div class="available-disciplinas">
-          <h2>Disciplinas Disponíveis</h2>
+  <h1>{{ isNew ? 'Cadastrar Nova Turma' : 'Alterar Turma' }}</h1>
+  <form (ngSubmit)="onSave()" class="curso-form">
+    <div class="form-group">
+      <label for="nomeCurso">Nome da Turma</label>
+      <input type="text" id="nomeCurso" [(ngModel)]="curso.nome_curso" name="nomeCurso" required>
+    </div>
+    <div class="form-group">
+      <label for="cargaHoraria">Carga Horária</label>
+      <input type="number" id="cargaHoraria" [(ngModel)]="curso.carga_horaria" name="cargaHoraria" required>
+    </div>
+    <div class="disciplinas-container">
+      <div class="available-disciplinas">
+        <h2>Disciplinas Disponíveis</h2>
+        <div class="disciplinas-box">
           <ul>
             <li *ngFor="let disciplina of availableDisciplinas" (click)="linkDisciplina(disciplina)">
               {{ disciplina.description }}
             </li>
           </ul>
         </div>
-        <div class="linked-disciplinas">
-          <h2>Disciplinas Vinculadas</h2>
+      </div>
+      <div class="linked-disciplinas">
+        <h2>Disciplinas Vinculadas</h2>
+        <div class="disciplinas-box">
           <ul>
             <li *ngFor="let disciplina of linkedDisciplinas" (click)="unlinkDisciplina(disciplina)">
               {{ disciplina.description }}
@@ -27,11 +30,11 @@
           </ul>
         </div>
       </div>
-      <div class="button-group">
-        <button type="button" (click)="navigateToCursos()" class="back-button">Voltar para Cursos</button>
-        <button *ngIf="!isNew" (click)="onDelete()" type="button" class="delete-button">Deletar</button>
-        <button type="submit" class="submit-button">{{ isNew ? 'Cadastrar' : 'Salvar' }}</button>
-      </div>
-    </form>
-  </div>
-  
+    </div>
+    <div class="button-group">
+      <button type="button" (click)="navigateToCursos()" class="back-button">Voltar para Turmas</button>
+      <button *ngIf="!isNew" (click)="onDelete()" type="button" class="delete-button">Deletar</button>
+      <button type="submit" class="submit-button">{{ isNew ? 'Cadastrar' : 'Salvar' }}</button>
+    </div>
+  </form>
+</div>

@@ -1,22 +1,22 @@
 <div class="cursos-container">
-    <h1>Cursos</h1>
-    <div class="search-container">
-      <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar cursos..." class="search-input">
-      <select [(ngModel)]="searchBy" class="search-select">
-        <option value="id">ID</option>
-        <option value="nome_curso">Nome</option>
-        <option value="carga_horaria">Carga Horária</option>
-      </select>
-      <button (click)="onSearch()" class="search-button">Buscar</button>
-    </div>
-    <ul class="cursos-list">
-      <li *ngFor="let curso of filteredCursos" (click)="onEditCurso(curso.id)" class="curso-item">
-        {{ curso.id }} - {{ curso.nome_curso }} - {{ curso.carga_horaria }}
-      </li>
-    </ul>
-    <div class="button-container">
-      <button (click)="navigateToHome()" class="nav-button">Voltar para Home</button>
-      <button (click)="onNewCurso()" class="new-curso-button">Cadastrar Novo Curso</button>
-    </div>
+  <h1>Turmas</h1>
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar cursos..." class="search-input">
+    <select [(ngModel)]="searchBy" class="search-select">
+      <option value="id">ID</option>
+      <option value="nome_curso">Nome</option>
+      <option value="carga_horaria">Carga Horária</option>
+    </select>
+    <button (click)="onSearch()" class="search-button">Buscar</button>
   </div>
+  <ul class="cursos-list">
+    <li *ngFor="let curso of filteredCursos" (click)="onEditCurso(curso.id)" class="curso-item">
+      {{ curso.id }} - {{ curso.nome_curso }} - {{ curso.carga_horaria }}
+    </li>
+  </ul>
+  <div class="button-container">
+    <button (click)="navigateToHome()" class="nav-button">Voltar para Home</button>
+    <button (click)="onNewCurso()" class="new-curso-button">Cadastrar Nova Turma</button>
+  </div>
+</div>
   

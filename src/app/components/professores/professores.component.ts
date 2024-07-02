@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../../environments/environment';
 
 interface Professor {
   id: number;
@@ -31,7 +32,7 @@ export class ProfessoresComponent implements OnInit {
   }
 
   loadProfessores(): void {
-    this.http.get<Professor[]>('http://localhost:8080/professors')
+    this.http.get<Professor[]>(`${environment.apiUrl}/professors`)
       .subscribe((data: Professor[]) => {
         this.professores = data.sort((a, b) => a.id - b.id);
         this.filteredProfessores = this.professores;
