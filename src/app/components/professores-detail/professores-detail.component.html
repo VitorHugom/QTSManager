@@ -1,52 +1,71 @@
 <div class="professor-detail-container">
     <h1>{{ isNew ? 'Cadastrar Novo Professor' : 'Alterar Professor' }}</h1>
     <form (ngSubmit)="onSave()" class="professor-form">
-        <div class="form-group">
-            <label for="nome_professor">Nome</label>
-            <input type="text" id="nome_professor" [(ngModel)]="professor.nome_professor" name="nome_professor" required>
+      <div class="form-group">
+        <label for="nome_professor">Nome</label>
+        <input type="text" id="nome_professor" [(ngModel)]="professor.nome_professor" name="nome_professor" required>
+      </div>
+      <div class="schedules-container">
+        <div class="schedule-pair">
+          <div class="available-schedules">
+            <h2>Disciplinas Disponíveis</h2>
+            <ul>
+              <li *ngFor="let discipline of availableDisciplines" (click)="linkDiscipline(discipline)">
+                {{ discipline.description }} - {{ discipline.workload }}h
+              </li>
+            </ul>
+          </div>
+          <div class="linked-schedules">
+            <h2>Disciplinas Vinculadas</h2>
+            <ul>
+              <li *ngFor="let discipline of linkedDisciplines" (click)="unlinkDiscipline(discipline)">
+                {{ discipline.description }} - {{ discipline.workload }}h
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="schedules-container">
-            <div class="schedule-pair">
-                <div class="available-schedules">
-                    <h2>Disciplinas Disponíveis</h2>
-                    <ul>
-                        <li *ngFor="let discipline of availableDisciplines" (click)="linkDiscipline(discipline)">
-                            {{ discipline.description }} - {{ discipline.workload }}h
-                        </li>
-                    </ul>
-                </div>
-                <div class="linked-schedules">
-                    <h2>Disciplinas Vinculadas</h2>
-                    <ul>
-                        <li *ngFor="let discipline of linkedDisciplines" (click)="unlinkDiscipline(discipline)">
-                            {{ discipline.description }} - {{ discipline.workload }}h
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="schedule-pair">
-                <div class="available-schedules">
-                    <h2>Dias da Semana Disponíveis</h2>
-                    <ul>
-                        <li *ngFor="let day of availableDaysOfWeek" (click)="linkDayOfWeek(day)">
-                            {{ day.dia_da_semana }}
-                        </li>
-                    </ul>
-                </div>
-                <div class="linked-schedules">
-                    <h2>Dias da Semana Vinculados</h2>
-                    <ul>
-                        <li *ngFor="let day of linkedDaysOfWeek" (click)="unlinkDayOfWeek(day)">
-                            {{ day.dia_da_semana }}
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <div class="schedule-pair">
+          <div class="available-schedules">
+            <h2>Dias da Semana Disponíveis</h2>
+            <ul>
+              <li *ngFor="let day of availableDaysOfWeek" (click)="linkDayOfWeek(day)">
+                {{ day.dia_da_semana }}
+              </li>
+            </ul>
+          </div>
+          <div class="linked-schedules">
+            <h2>Dias da Semana Vinculados</h2>
+            <ul>
+              <li *ngFor="let day of linkedDaysOfWeek" (click)="unlinkDayOfWeek(day)">
+                {{ day.dia_da_semana }}
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="button-group">
-            <button (click)="navigateToProfessors()" type="button" class="back-button">Voltar para Professores</button>
-            <button *ngIf="!isNew" (click)="onDelete()" type="button" class="delete-button">Deletar</button>
-            <button type="submit" class="submit-button">{{ isNew ? 'Cadastrar' : 'Salvar' }}</button>
+        <div class="schedule-pair">
+          <div class="available-schedules">
+            <h2>Turmas Disponíveis</h2>
+            <ul>
+              <li *ngFor="let course of availableCourses" (click)="linkCourse(course)">
+                {{ course.nome_curso }}
+              </li>
+            </ul>
+          </div>
+          <div class="linked-schedules">
+            <h2>Turmas Vinculadas</h2>
+            <ul>
+              <li *ngFor="let course of linkedCourses" (click)="unlinkCourse(course)">
+                {{ course.nome_curso }}
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
+      <div class="button-group">
+        <button (click)="navigateToProfessors()" type="button" class="back-button">Voltar para Professores</button>
+        <button *ngIf="!isNew" (click)="onDelete()" type="button" class="delete-button">Deletar</button>
+        <button type="submit" class="submit-button">{{ isNew ? 'Cadastrar' : 'Salvar' }}</button>
+      </div>
     </form>
-</div>
+  </div>
+  
